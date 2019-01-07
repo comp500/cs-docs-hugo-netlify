@@ -6,16 +6,9 @@ disableKinds = ["taxonomy","taxonomyTerm"]
 disableHugoGeneratorInject = true
 
 [outputs]
-page = ["HTML", "partials"]
-home = ["HTML", "partials", "search"]
-section = ["HTML", "partials"]
-
-[outputFormats.partials]
-mediaType = "text/html"
-baseName = "index"
-isPlainText = false
-isHTML = true
-path = "partials"
+page = ["HTML"]
+home = ["HTML", "search"]
+section = ["HTML"]
 
 [outputFormats.search]
 mediaType = "application/json"
