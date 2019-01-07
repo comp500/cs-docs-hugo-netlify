@@ -8,7 +8,7 @@ menu:
 ---
 
 ## Lesson Notes
-### Mr Singh's interpretation of "Generation"
+### Alternative interpretation of "Generation"
 |Generation|Example|Usage|
 |---|---|---|
 |1|Machine code|Used directly by the processor|
