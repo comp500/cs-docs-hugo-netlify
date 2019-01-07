@@ -1,10 +1,14 @@
 {{ define "main" }}
+	{{ if .Pages }}
 	<h1>Topics in "{{ .Title }}"</h1>
 	{{ range sort .Pages "Params.menu.main.weight" }}
 		<h2>{{ if .Params.module }}{{ .Params.module }} {{end}}<a href="{{ .URL }}">{{ .Title }}</a></h2>
 	{{ end }}
+	{{ end }}
+	{{ if .Sections }}
 	<h1>Sections in "{{ .Title }}"</h1>
-	{{ range sort .Sections "Params.menu.main.weight" }}
+	{{ range .Sections }}
 		<h2>{{ if .Params.module }}{{ .Params.module }} {{end}}<a href="{{ .URL }}">{{ .Title }}</a></h2>
+	{{ end }}
 	{{ end }}
 {{ end }}
