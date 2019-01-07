@@ -12,7 +12,7 @@ gulp.task("less", () => {
 	return gulp
 		.src("./themes/green/less/styles.less")
 		.pipe(less())
-		.pipe(gulp.dest("./themes/green/static/css/styles.css"));
+		.pipe(gulp.dest("./themes/green/static/css/"));
 });
 
 gulp.task("hugo", done => {
