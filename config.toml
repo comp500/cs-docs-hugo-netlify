@@ -1,6 +1,6 @@
 baseURL = "/"
 languageCode = "en-gb"
-title = "Computing Documentation"
+title = "AQA Computer Science Documentation"
 theme = "green"
 disableKinds = ["taxonomy","taxonomyTerm"]
 disableHugoGeneratorInject = true
