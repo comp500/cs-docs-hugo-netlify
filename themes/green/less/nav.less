@@ -1,0 +1,106 @@
+/* Nav styles
+*/
+
+.main-nav {
+	// A load of magic to make it:
+	//   Scroll when the user scrolls, but stop at the top
+	//   Keep on the left of the screen
+	//   Fill the screen height, stay at the top
+	//   Transition when media queries happen
+	float: left;
+	position: fixed;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	width: @nav-width-medium;
+	height: 100%;
+	padding-top: 0.5em;
+	transition: width 0.3s, height 0.3s, padding-top 0.3s, opacity 0.2s ease 0.1s;
+	
+	// Make search bar look good, with padding and borders
+	input {
+		width: 100%;
+		width: -moz-available;
+		width: -webkit-fill-available;
+		width: available;
+		padding: 0.5em;
+		border-radius: 0.5em;
+		border: 1px solid @accent;
+		margin-bottom: 0.5em;
+	}
+	
+	// Affects first unordered list
+	#existingItems > ul {
+		// This should not be required, remove after fixing clipping
+		height: ~"calc(100vh - 9em)";
+		overflow-y: auto;
+	}
+
+	// Affects all unordered lists
+	ul {
+		list-style-type: none;
+		padding-left: 0;
+		margin: 0;
+	}
+
+	// Hide only child of child or deeper
+	#existingItems > ul ul {
+		padding-left: 2em;
+		display: none;
+		&.expanded {
+			display: block;
+		}
+	}
+
+	// Hide nav on phone, unless nav-open is applied
+	@media @phone {
+		width: 0;
+		opacity: 0;
+		position: static;
+		height: 0;
+
+		ul {
+			height: 100% !important;
+		}
+
+		&.nav-open {
+			opacity: 1;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	// Change size based on screen width
+
+	@media @large {
+		width: @nav-width-large;
+	}
+
+	@media @xlarge {
+		width: @nav-width-xlarge;
+	}
+
+	// Transition opacity when search starts
+	#existingItems {
+		transition: opacity 0.3s;
+		&.hidden {
+			opacity: 0;
+		}
+	}
+
+	#searchItems {
+		transition: opacity 0.3s;
+		opacity: 0;
+		display: none;
+		&.shown {
+			opacity: initial;
+			display: block;
+		}
+	}
+
+	// Remove text decoration for link
+	.expand {
+		text-decoration: none;
+		color: @accent;
+	}
+}

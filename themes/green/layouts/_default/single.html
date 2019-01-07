@@ -1,0 +1,10 @@
+{{ define "main" }}
+	<h1>{{ if .Page.Params.module }}{{ .Page.Params.module }} {{end}}{{ .Title }}</h1>
+	{{ if and (gt .WordCount 400 ) (ne .Params.toc "false") }}
+	<aside>
+		<h3>Table of Contents</h3>
+		{{.TableOfContents}}
+	</aside>
+	{{ end }}
+	{{ .Content }}
+{{ end }}

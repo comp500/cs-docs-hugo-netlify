@@ -1,0 +1,15 @@
+{
+	"short_name": "CS Docs",
+	"name": "Computing Documentation",
+	"background_color": "#fff",
+	"start_url": "/",
+	"display": "standalone",
+	"theme_color": "#35CC68",
+	"icons": [
+		{
+			"src": "cs-docs-logo.png",
+			"type": "image/png",
+			"sizes": "144x144"
+		}
+	]
+}

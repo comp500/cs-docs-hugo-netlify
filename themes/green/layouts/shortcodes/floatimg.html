@@ -1,0 +1,3 @@
+{{ $original := .Page.Resources.GetMatch (printf "%s*" (.Get 0)) }}
+{{ $image := ($original.Resize "x200") }}
+<img src="{{ $image.RelPermalink }}" style="float:right">

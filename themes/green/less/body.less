@@ -1,0 +1,92 @@
+/* Body styles
+*/
+
+body {
+	// Set standard font
+	font-family: 'Open Sans', sans-serif;
+	// Remove margin added by browsers
+	margin: 0;
+}
+
+// Container for nav and article
+.container {
+	// Left and right padding, to make it fit better on screens
+	margin-left: 1em;
+	margin-right: 1em;
+	// Height 100% because reasons
+	height: 100%;
+}
+
+// Progress bar for loading via AJAX
+#progress-bar {
+	// Top left of screen
+	position: absolute;
+	top: 0;
+	left: 0;
+	// Default width of 0
+	width: 0;
+	height: 0.3em;
+	// Accent color, transparent by default
+	background-color: @accent;
+	opacity: 0;
+	// Transitions for width
+	transition: width 0.3s, opacity 0.2s;
+}
+
+// Heading sizes and margins determined by sqrt()
+.generate-headings(4);
+
+.generate-headings(@n, @i: 1) when (@i <= @n) {
+	h@{i} {
+		font-size: (sqrt(@n - (@i - 1))) * 1.1em;
+		margin-top: (sqrt(@n - (@i - 1))) * 0.5em;
+		margin-bottom: (sqrt(@n - (@i - 1))) * 0.1em;
+	}
+	.generate-headings(@n, (@i + 1));
+}
+
+table {
+	border-collapse: collapse;
+
+	// Scrollable on mobile
+	display: block;
+	overflow-x: auto;
+}
+
+td, th {
+	border: 1px #aaa solid;
+	padding: 1rem;
+}
+
+td {
+	// A fix for the dream computer
+	img {
+		height: 100px;
+	}
+}
+
+// +/- and colours for pros and cons
+.pros-and-cons {
+	ul {
+		list-style: none;
+		margin-left: 0;
+		padding-left: 0;
+	}
+
+	li {
+		padding-left: 1em;
+		text-indent: -1em;
+	}
+	
+	.pro::before {
+		content: "+";
+		color: #539951;
+		padding-right: 5px;
+	}
+
+	.con::before {
+		content: "-";
+		color: #995153;
+		padding-right: 5px;
+	}
+}

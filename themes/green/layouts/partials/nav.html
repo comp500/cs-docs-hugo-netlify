@@ -1,0 +1,55 @@
+<nav id="mainNav" class="main-nav">
+	<input id="searchInput" type="text" placeholder="Loading search..." disabled>
+	<ul id="searchItems"></ul>
+	<div id="existingItems">
+		<ul>
+			{{ $currentPage := . }}
+			{{ range .Site.Menus.main }}
+				{{ if .HasChildren }}
+					<li{{ if or ($currentPage.HasMenuCurrent "main" .) ($currentPage.IsMenuCurrent "main" .) }} class="active"{{ end }}>
+						{{ if or ($currentPage.HasMenuCurrent "main" .) ($currentPage.IsMenuCurrent "main" .) }}
+							<a class="expand" href="#">&#x2BC6;</a>
+						{{else}}
+							<a class="expand" href="#">&#x2BC8;</a>
+						{{end}}
+						{{ if .Page.Params.module }}<span class="module">{{ .Page.Params.module }}</span>{{end}}
+						<a href="{{.URL}}">{{ .Name }}</a>
+						<ul{{ if or ($currentPage.HasMenuCurrent "main" .) ($currentPage.IsMenuCurrent "main" .) }} class="expanded"{{ end }}>
+							{{ range .Children }}
+								{{ if .HasChildren }}
+									<li{{ if or ($currentPage.HasMenuCurrent "main" .) ($currentPage.IsMenuCurrent "main" .) }} class="active"{{ end }}>
+										{{ if or ($currentPage.HasMenuCurrent "main" .) ($currentPage.IsMenuCurrent "main" .) }}
+											<a class="expand" href="#">&#x2BC6;</a>
+										{{else}}
+											<a class="expand" href="#">&#x2BC8;</a>
+										{{end}}
+										{{ if .Page.Params.module }}<span class="module">{{ .Page.Params.module }}</span>{{end}}
+										<a href="{{.URL}}">{{ .Name }}</a>
+										<ul{{ if or ($currentPage.HasMenuCurrent "main" .) ($currentPage.IsMenuCurrent "main" .) }} class="expanded"{{ end }}>
+											{{ range .Children }}
+												<li{{ if $currentPage.IsMenuCurrent "main" . }} class="active"{{ end }}>
+													{{ if .Page.Params.module }}<span class="module">{{ .Page.Params.module }}</span>{{end}}
+													<a href="{{ .URL }}">{{ .Name }}</a>
+												</li>
+											{{ end }}
+										</ul>
+									</li>
+								{{else}}
+									<li{{ if $currentPage.IsMenuCurrent "main" . }} class="active"{{ end }}>
+										{{ if .Page.Params.module }}<span class="module">{{ .Page.Params.module }}</span>{{end}}
+										<a href="{{.URL}}">{{ .Name }}</a>
+									</li>
+								{{end}}
+							{{ end }}
+						</ul>
+					</li>
+				{{else}}
+					<li{{ if $currentPage.IsMenuCurrent "main" . }} class="active"{{ end }}>
+						{{ if .Page.Params.module }}<span class="module">{{ .Page.Params.module }}</span>{{end}}
+						<a href="{{.URL}}">{{ .Name }}</a>
+					</li>
+				{{end}}
+			{{end}}
+		</ul>
+	</div>
+</nav>

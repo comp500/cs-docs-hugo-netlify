@@ -1,0 +1,26 @@
+baseURL = "/"
+languageCode = "en-gb"
+title = "Computing Documentation"
+theme = "green"
+disableKinds = ["taxonomy","taxonomyTerm"]
+disableHugoGeneratorInject = true
+
+[outputs]
+page = ["HTML", "partials"]
+home = ["HTML", "partials", "search"]
+section = ["HTML", "partials"]
+
+[outputFormats.partials]
+mediaType = "text/html"
+baseName = "index"
+isPlainText = false
+isHTML = true
+path = "partials"
+
+[outputFormats.search]
+mediaType = "application/json"
+baseName = "search"
+isPlainText = true
+
+[imaging]
+quality = 90

@@ -1,0 +1,26 @@
+/* Table of Contents styles
+*/
+
+aside {
+	// Put TOC on right, with padding and border
+	@media @large {
+		float: right;
+		padding: 1em;
+		border-radius: 0.5em;
+		border: 1px solid @accent;
+	}
+
+	h3 {
+		margin: 0;
+	}
+
+	ul {
+		list-style-type: none;
+		padding-left: 0;
+
+		// Child lists should be indented
+		ul {
+			padding-left: 1em;
+		}
+	}
+}

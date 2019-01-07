@@ -1,0 +1,28 @@
+// styles.less
+// Main less file, imports all the other files
+// and sets constants for them to use.
+
+// Set colour constants
+@accent: #7A26CC;
+@theme: #35CC68;
+@theme-darker: #699979;
+@header-contrast: contrast(@theme-darker);
+
+// Set media query constants
+@phone: ~"only screen and (max-width: 35rem)";
+@large: ~"only screen and (min-width: 45rem)";
+@xlarge: ~"only screen and (min-width: 55rem)";
+
+// Set nav constants
+@nav-distance: 1rem;
+@nav-width-medium: 11rem;
+@nav-width-large: 15rem;
+@nav-width-xlarge: 19rem;
+
+// Import the other styles
+@import "fonts";
+@import "body";
+@import "header";
+@import "nav";
+@import "article";
+@import "toc";

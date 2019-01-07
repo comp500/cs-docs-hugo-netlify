@@ -1,0 +1,40 @@
+/* Article styles
+*/
+
+article {
+	// Set height for reasons?
+	height: 100%;
+	// Margin to make space for nav
+	margin-left: @nav-width-medium + @nav-distance;
+	// Hide rogue images that want to overflow
+	overflow: hidden;
+	// Transition, due to media queries and menu button
+	transition: margin-left 0.3s, width 0.3s, height 0.3s, opacity 0.2s ease 0.1s;
+	
+	// Add a margin at the top, to make space between this and header
+	& > :first-child {
+		margin-top: 0.5em;
+	}
+
+	// On phones
+	@media @phone {
+		// No nav by default
+		margin-left: 0;
+		&.nav-open {
+			// When nav is open, hide
+			opacity: 0;
+			width: 0;
+			height: 0;
+		}
+	}
+
+	// Adjust margin based on nav width
+
+	@media @large {
+		margin-left: @nav-width-large + @nav-distance;
+	}
+
+	@media @xlarge {
+		margin-left: @nav-width-xlarge + @nav-distance;
+	}
+}

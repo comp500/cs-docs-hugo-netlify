@@ -1,0 +1,4 @@
+<div class="pros-and-cons">
+	<strong>Pros and cons:</strong>
+	{{ replace (replace (.Inner) ">+" " class=\"pro\">") ">-" " class=\"con\">" | safeHTML }}
+</div>

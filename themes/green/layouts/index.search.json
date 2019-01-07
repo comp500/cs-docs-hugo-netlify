@@ -1,0 +1,8 @@
+{{- $.Scratch.Add "searchindex" slice -}}
+{{- $.Scratch.Add "resultobjects" slice -}}
+{{- range $index, $element := (where .Site.Pages "Params.module" "!=" nil) -}}
+	{{- $.Scratch.Add "searchindex" (delimit (slice $element.Params.module $element.Title) " ") -}}
+	{{- $.Scratch.Add "resultobjects" (dict "id" $index "pageTitle" $element.Title "href" $element.URL "module" $element.Params.module) -}}
+{{- end -}}
+{{- $final := dict "resultObjects" ($.Scratch.Get "resultobjects") "searchIndex" ($.Scratch.Get "searchindex") -}}
+{{- $final | jsonify -}}
