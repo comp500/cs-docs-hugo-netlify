@@ -4,7 +4,7 @@
 	"background_color": "#fff",
 	"start_url": "/",
 	"display": "standalone",
-	"theme_color": "#35CC68",
+	"theme_color": "#35cc68",
 	"icons": [
 		{
 			"src": "cs-docs-logo.png",
